@@ -33,6 +33,7 @@ jobs:
     - run: sudo service mongodb start || true
     - run: df -h
     - run: npm install
+    - run: rm -rf ~/virtualenvs/edxapp
     - run: test -e ~/virtualenvs/edxapp || virtualenv ~/virtualenvs/edxapp
     - run: echo 'source ~/virtualenvs/edxapp/bin/activate' >> $BASH_ENV
     - run: pip install setuptools
