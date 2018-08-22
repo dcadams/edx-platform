@@ -35,9 +35,6 @@ jobs:
     - run: npm install
     - run: test -e ~/virtualenvs/edxapp || virtualenv ~/virtualenvs/edxapp
     - run: echo 'source ~/virtualenvs/edxapp/bin/activate' >> $BASH_ENV
-    - run: which pip
-    - run: pip --version
-    - run: which virtualenv
     - run: pip install setuptools
     - run: pip install --exists-action w -r requirements/edx/paver.txt
     - run: pip install --exists-action w -r requirements/edx/pre.txt
