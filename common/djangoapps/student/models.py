@@ -974,7 +974,10 @@ class CourseEnrollmentManager(models.Manager):
         }
         if not include_inactive:
             filter_kwargs['courseenrollment__is_active'] = True
-        return User.objects.filter(**filter_kwargs)
+        exclude_kwargs = {
+            'courseenrollment__user__email__endswith': 'example.com',
+        }
+        return User.objects.filter(**filter_kwargs).exclude(**exclude_kwargs)
 
     def enrollment_counts(self, course_id):
         """

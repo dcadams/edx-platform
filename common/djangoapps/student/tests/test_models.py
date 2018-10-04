@@ -103,3 +103,16 @@ class CourseEnrollmentTests(SharedModuleStoreTestCase):
             CourseEnrollment.objects.users_enrolled_in(self.course.id, include_inactive=True)
         )
         self.assertListEqual([self.user, self.user_2], all_enrolled_users)
+
+    def test_users_enrolled_in_without_unauth_or_lti(self):
+        """
+        CourseEnrollment.users_enrolled_in should not return unauthenticated or lti users.
+        """
+        CourseEnrollmentFactory.create(user=self.user, course_id=self.course.id, is_active=True)
+        self.user_n = UserFactory.create(email='test@example.com')
+        CourseEnrollmentFactory.create(user=self.user_n, course_id=self.course.id)
+
+        actual_enrolled_users = list(
+            CourseEnrollment.objects.users_enrolled_in(self.course.id)
+        )
+        self.assertListEqual([self.user], actual_enrolled_users)
