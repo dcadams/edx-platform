@@ -963,20 +963,24 @@ class CourseEnrollmentManager(models.Manager):
 
         return is_course_full
 
-    def users_enrolled_in(self, course_id, include_inactive=False):
+    def users_enrolled_in(self, course_id, include_inactive=False, exclude_fake_email=False):
         """
         Return a queryset of User for every user enrolled in the course.  If
         `include_inactive` is True, returns both active and inactive enrollees
-        for the course. Otherwise returns actively enrolled users only.
+        for the course. Otherwise returns actively enrolled users only. If
+        `exclude_fake_email` is True, does not include non-real users e.g.
+        LTI users.
         """
         filter_kwargs = {
             'courseenrollment__course_id': course_id,
         }
         if not include_inactive:
             filter_kwargs['courseenrollment__is_active'] = True
+
         exclude_kwargs = {
-            'courseenrollment__user__email__endswith': 'example.com',
-        }
+            'courseenrollment__user__email__endswith': '.example.com',
+            'courseenrollment__user__email__endswith': '@example.com',
+        } if exclude_fake_email else {}
         return User.objects.filter(**filter_kwargs).exclude(**exclude_kwargs)
 
     def enrollment_counts(self, course_id):
