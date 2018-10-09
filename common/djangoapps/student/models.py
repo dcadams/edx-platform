@@ -981,10 +981,24 @@ class CourseEnrollmentManager(models.Manager):
         Returns a dictionary that stores the total enrollment count for a course, as well as the
         enrollment count for each individual mode.
         """
+        exclude_kwargs = {
+            'user__email__endswith': '.example.com',
+            'user__email__endswith': '@example.com',
+        }
+
         # Unfortunately, Django's "group by"-style queries look super-awkward
         query = use_read_replica_if_available(
-            super(CourseEnrollmentManager, self).get_queryset().filter(course_id=course_id, is_active=True).values(
-                'mode').order_by().annotate(Count('mode')))
+            super(CourseEnrollmentManager, self).get_queryset().filter(
+                course_id=course_id,
+                is_active=True,
+            ).exclude(
+                **exclude_kwargs
+            ).values(
+                'mode',
+            ).order_by().annotate(
+                Count('mode')
+            )
+        )
         total = 0
         enroll_dict = defaultdict(int)
         for item in query:
