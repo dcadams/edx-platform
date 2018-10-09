@@ -978,8 +978,8 @@ class CourseEnrollmentManager(models.Manager):
             filter_kwargs['courseenrollment__is_active'] = True
 
         exclude_kwargs = {
-            'courseenrollment__user__email__endswith': '.example.com',
-            'courseenrollment__user__email__endswith': '@example.com',
+            'email__endswith': '.example.com',
+            'email__endswith': '@example.com',
         } if exclude_fake_email else {}
         return User.objects.filter(**filter_kwargs).exclude(**exclude_kwargs)
 
