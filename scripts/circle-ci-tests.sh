@@ -57,7 +57,8 @@ else
             echo "Finding pylint violations and storing in report..."
             # HACK: we need to print something to the console, otherwise circleci
             # fails and aborts the job because nothing is displayed for > 10 minutes.
-            paver run_pylint -l $PYLINT_THRESHOLD | tee pylint.log || EXIT=1
+            paver run_pylint -s cms -l $PYLINT_THRESHOLD | tee pylint.log || EXIT=1
+            paver run_pylint -s lms -l $PYLINT_THRESHOLD | tee pylint.log || EXIT=1
 
             mkdir -p reports
             PATH=$PATH:node_modules/.bin
