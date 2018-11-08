@@ -45,8 +45,8 @@ jobs:
     - run: pip install --exists-action w -r requirements/edx/paver.txt
     - run: if [ -e requirements/edx/post.txt ]; then pip install --exists-action w -r requirements/edx/post.txt ; fi
     - run: pip install coveralls==1.0
-    - run: pip install pylint==1.4.5
-    - run: pip install astroid==1.5.3
+    - run: pip install pylint
+    - run: pip install astroid
     - run: pip freeze
     - save_cache:
         key: v1-dep-{{ .Branch }}-{{ epoch }}
