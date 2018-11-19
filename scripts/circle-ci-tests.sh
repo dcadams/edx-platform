@@ -61,7 +61,8 @@ else
             paver run_pylint -s lms -l $PYLINT_THRESHOLD | tee pylint.log || EXIT=1
 
             mkdir -p reports
-            PATH=$PATH:node_modules/.bin
+#            PATH=$PATH:node_modules/.bin
+            PATH=$PATH:/home/circleci/Stanford-Online/edx-platform/node_modules/eslint-config-edx/node_modules/.bin/
 
             echo "Finding ESLint violations and storing report..."
             paver run_eslint -l $ESLINT_THRESHOLD > eslint.log || { cat eslint.log; EXIT=1; }
