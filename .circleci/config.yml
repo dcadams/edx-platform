@@ -27,7 +27,9 @@ jobs:
     - run: sudo apt-get update
     - run: sudo apt-get upgrade
     - run: sudo apt-get install libssl-dev libffi-dev
-    - run: sudo apt install nodejs npm
+#    - run: sudo apt install nodejs npm
+    - run: curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+    - run: sudo apt-get install -y nodejs
     - run: sudo apt install python-pip
     - run: while read package; do sudo apt install "${package}" || true; done <requirements/system/ubuntu/apt-packages.txt
     - run: sudo service mongodb start || true
