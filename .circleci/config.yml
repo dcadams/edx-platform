@@ -35,6 +35,7 @@ jobs:
     - run: sudo service mongodb start || true
     - run: df -h
 #    - run: sudo npm i -g eslint
+    - run: npm i eslint-config-edx-es5
     - run: test -e ~/virtualenvs/edxapp || virtualenv ~/virtualenvs/edxapp
     - run: echo 'source ~/virtualenvs/edxapp/bin/activate' >> $BASH_ENV
     - run: pip install setuptools
