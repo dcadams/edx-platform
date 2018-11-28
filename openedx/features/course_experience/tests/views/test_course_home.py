@@ -106,6 +106,6 @@ class TestCourseHomePage(SharedModuleStoreTestCase):
 
         # Fetch the view and verify the query counts
         with self.assertNumQueries(39, table_blacklist=QUERY_COUNT_TABLE_BLACKLIST):
-            with check_mongo_calls(4):
+            with check_mongo_calls(5):
                 url = course_home_url(self.course)
                 self.client.get(url)
