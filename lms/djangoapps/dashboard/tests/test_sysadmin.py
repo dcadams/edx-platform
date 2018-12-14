@@ -482,11 +482,11 @@ class TestSysAdminMongoCourseImport(SysadminBaseTestCase):
 #         Make sure the pagination behaves properly when the requested page is out
 #         of range.
 #         """
-# 
+#
 #         self._setstaff_login()
-# 
+#
 #         mongoengine.connect(TEST_MONGODB_LOG['db'])
-# 
+#
 #         for _ in xrange(15):
 #             CourseImportLog(
 #                 course_id=SlashSeparatedCourseKey("test", "test", "test"),
@@ -496,7 +496,7 @@ class TestSysAdminMongoCourseImport(SysadminBaseTestCase):
 #                 repo_dir="repo_dir",
 #                 created=datetime.now()
 #             ).save()
-# 
+#
 #         for page, expected in [(-1, 1), (1, 1), (2, 2), (30, 2), ('abc', 1)]:
 #             response = self.client.get(
 #                 '{}?page={}'.format(
@@ -508,7 +508,7 @@ class TestSysAdminMongoCourseImport(SysadminBaseTestCase):
 #                  'Page {} of 2'.format(expected),
 #                  response.content
 #              )
-# 
+#
 #         CourseImportLog.objects.delete()
 
     def test_gitlog_courseteam_access(self):
