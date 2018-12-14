@@ -54,10 +54,10 @@ class TestFooter(TestCase):
                 'title': u'Powered by Open edX'
             },
             'edx_org_link': {
-                'url': 'https://www.edx.org/?utm_medium=affiliate_partner&utm_source=opensource-partner&utm_content=open-edx-partner-footer-link&utm_campaign=open-edx-footer',  # pylint: disable=C0301
+                'url': 'https://www.edx.org/?utm_medium=affiliate_partner&utm_source=opensource-partner&utm_content=open-edx-partner-footer-link&utm_campaign=open-edx-footer',
                 'text': u'Take free online courses at edX.org'
             },
-            'copyright': u'\xa9 \xe9dX.  All rights reserved except where noted.  EdX, Open edX and their respective logos are trademarks or registered trademarks of edX Inc.',  # pylint: disable=C0301
+            'copyright': u'\xa9 \xe9dX.  All rights reserved except where noted.  EdX, Open edX and their respective logos are trademarks or registered trademarks of edX Inc.',
             'navigation_links': [
                 {'url': u'https://edx.org/about-us', 'name': 'about', 'title': u'About'},
                 {'url': u'https://edx.org/news-announcements', 'name': 'news', 'title': u'News'},
