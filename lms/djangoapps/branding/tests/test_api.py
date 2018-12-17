@@ -48,54 +48,95 @@ class TestFooter(TestCase):
     def test_get_footer(self):
         actual_footer = get_footer(is_secure=True)
         expected_footer = {
-            'copyright':
-                '\xa9 \xe9dX.  All rights reserved except where noted.  '
-                'EdX, Open edX and their respective logos '
-                'are trademarks or registered trademarks of edX Inc.',
-            'navigation_links': [
-                {'url': 'https://edx.org/about-us', 'name': 'about', 'title': 'About'},
-                {'url': 'https://edx.org/enterprise', 'name': 'enterprise', 'title': '\xe9dX for Business'},
-                {'url': 'https://edx.org/edx-blog', 'name': 'blog', 'title': 'Blog'},
-                {'url': 'https://edx.org/news-announcements', 'name': 'news', 'title': 'News'},
-                {'url': 'https://support.example.com', 'name': 'help-center', 'title': 'Help Center'},
-                {'url': 'https://edx.org/contact', 'name': 'contact', 'title': 'Contact'},
-                {'url': 'https://edx.org/donate', 'name': 'donate', 'title': 'Donate'}
-            ],
-            'legal_links': [
-                {'url': 'https://edx.org/edx-terms-service',
-                 'name': 'terms_of_service_and_honor_code',
-                 'title': 'Terms of Service & Honor Code'},
-                {'url': 'https://edx.org/edx-privacy-policy', 'name': 'privacy_policy', 'title': 'Privacy Policy'},
-                {'url': 'https://edx.org/accessibility',
-                 'name': 'accessibility_policy',
-                 'title': 'Accessibility Policy'},
-                {'url': 'https://edx.org/sitemap', 'name': 'sitemap', 'title': 'Sitemap'},
-                {'url': 'https://edx.org/media-kit', 'name': 'media_kit', 'title': 'Media Kit'}
-            ],
-            'social_links': [
-                {'url': '#', 'action': 'Like \xe9dX on Facebook', 'name': 'facebook',
-                 'icon-class': 'fa-facebook-square', 'title': 'Facebook'},
-                {'url': '#', 'action': 'Follow \xe9dX on Twitter', 'name': 'twitter',
-                 'icon-class': 'fa-twitter', 'title': 'Twitter'},
-                {'url': '#', 'action': 'Subscribe to the \xe9dX YouTube channel',
-                 'name': 'youtube', 'icon-class': 'fa-youtube', 'title': 'Youtube'},
-                {'url': '#', 'action': 'Follow \xe9dX on LinkedIn', 'name': 'linkedin',
-                 'icon-class': 'fa-linkedin-square', 'title': 'LinkedIn'},
-                {'url': '#', 'action': 'Follow \xe9dX on Google+', 'name': 'google_plus',
-                 'icon-class': 'fa-google-plus-square', 'title': 'Google+'},
-                {'url': '#', 'action': 'Subscribe to the \xe9dX subreddit',
-                 'name': 'reddit', 'icon-class': 'fa-reddit', 'title': 'Reddit'}
-            ],
-            'mobile_links': [],
-            'logo_image': 'https://edx.org/static/images/logo.png',
             'openedx_link': {
                 'url': 'http://open.edx.org',
                 'image': 'https://files.edx.org/openedx-logos/edx-openedx-logo-tag.png',
-                'title': 'Powered by Open edX'
+                'title': u'Powered by Open edX'
             },
             'edx_org_link': {
                 'url': 'https://www.edx.org/?utm_medium=affiliate_partner&utm_source=opensource-partner&utm_content=open-edx-partner-footer-link&utm_campaign=open-edx-footer',
-                'text': 'Take free online courses at edX.org',
+                'text': u'Take free online courses at edX.org'
             },
+            'copyright': u'\xa9 \xe9dX.  All rights reserved except where noted.  EdX, Open edX and their respective logos are trademarks or registered trademarks of edX Inc.',
+            'navigation_links': [
+                {'url': u'https://edx.org/about-us', 'name': 'about', 'title': u'About'},
+                {'url': u'https://edx.org/news-announcements', 'name': 'news', 'title': u'News'},
+                {'url': 'https://support.example.com', 'name': 'help-center', 'title': u'Help Center'},
+                {'url': u'https://edx.org/contact', 'name': 'contact', 'title': u'Contact'}
+            ],
+            'legal_links': [
+                {
+                    'url': u'https://edx.org/edx-terms-service',
+                    'name': 'terms_of_service_and_honor_code',
+                    'title': u'Terms of Service & Honor Code'
+                },
+                {
+                    'url': u'https://edx.org/edx-privacy-policy',
+                    'name': 'privacy_policy',
+                    'title': u'Privacy Policy'
+                },
+                {
+                    'url': u'https://edx.org/accessibility',
+                    'name': 'accessibility_policy',
+                    'title': u'Accessibility Policy'
+                },
+                {
+                    'url': u'https://edx.org/sitemap',
+                    'name': 'sitemap',
+                    'title': u'Sitemap'
+                },
+                {
+                    'url': u'https://edx.org/media-kit',
+                    'name': 'media_kit',
+                    'title': u'Media Kit'
+                }
+            ],
+            'social_links': [
+                {
+                    'url': '#',
+                    'action': u'Like \xe9dX on Facebook',
+                    'name': 'facebook',
+                    'icon-class': 'fa-facebook-square',
+                    'title': u'Facebook'
+                },
+                {
+                    'url': '#',
+                    'action': u'Follow \xe9dX on Twitter',
+                    'name': 'twitter',
+                    'icon-class': 'fa-twitter',
+                    'title': u'Twitter'
+                },
+                {
+                    'url': '#',
+                    'action': u'Subscribe to the \xe9dX YouTube channel',
+                    'name': 'youtube',
+                    'icon-class': 'fa-youtube',
+                    'title': u'Youtube'
+                },
+                {
+                    'url': '#',
+                    'action': u'Follow \xe9dX on LinkedIn',
+                    'name': 'linkedin',
+                    'icon-class': 'fa-linkedin-square',
+                    'title': u'LinkedIn'
+                },
+                {
+                    'url': '#',
+                    'action': u'Follow \xe9dX on Google+',
+                    'name': 'google_plus',
+                    'icon-class': 'fa-google-plus-square',
+                    'title': u'Google+'
+                },
+                {
+                    'url': '#',
+                    'action': u'Subscribe to the \xe9dX subreddit',
+                    'name': 'reddit',
+                    'icon-class': 'fa-reddit',
+                    'title': u'Reddit'
+                }
+            ],
+            'mobile_links': [],
+            'logo_image': 'https://edx.org/static/images/logo.png'
         }
+
         self.assertEqual(actual_footer, expected_footer)
